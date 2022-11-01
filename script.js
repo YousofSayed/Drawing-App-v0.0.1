@@ -212,7 +212,15 @@ function makeDrawAndEraserFasle() {
     isEraser = false;
     isDraw = false;
 }
+function clearCanvas(tank) {
+    if (tank === 'clearCanvas') {
+        ctx.fillStyle = `#ffffff`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+    }
+    //I Will Use ClearRect Because It make Black Rect
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+};
 //Tools For PC
 tools.addEventListener('click', (e) => {
 
@@ -223,9 +231,10 @@ tools.addEventListener('click', (e) => {
         y = e.offsetY;
     })
 
-
+    
+    
     tank = e.target.id;
-
+    clearCanvas(tank);
     if (tank === 'brush') {
         isDraw = true;
         isEraser = false;
@@ -269,8 +278,11 @@ tools.addEventListener('click', (e) => {
         console.log(isEraser);
     }
 
+
+    console.log(tank);
     canvas.addEventListener('mousemove', (e) => {
         if (isDrawing === true) {
+            fillRectWhite();
             drawTriangle(e);
             drawRect(e);
             drawCircle(e);
@@ -310,10 +322,13 @@ tools.addEventListener('click', (e) => {
     })
 
 
+
     tank = e.target.id;
+    clearCanvas(tank);
 
     canvas.addEventListener('touchmove', (e) => {
         if (isDrawing === true) {
+            fillRectWhite();
             drawTriangle(e);
             drawRect(e);
             drawCircle(e);
@@ -365,6 +380,7 @@ check.addEventListener('click', () => {
         isFill = false;
         check.style.backgroundColor = `transparent`;
     }
+    console.log(isFill);
 });
 
 color.addEventListener('change', () => {
@@ -384,6 +400,7 @@ function fillRectWhite() {
     if (ctx.fillStyle === '#000000') {
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, canvas.width, canvas.height)
+        console.log(ctx.fillStyle);
     }
 };
 
@@ -583,6 +600,8 @@ function drawTriangle(event) {
         }
         //For Touch Devices
 
+        console.log(x * 2);
+        console.log(event.offsetX);
         if (isFill === true) {
             ctx.fillStyle = color.value;
             ctx.fill();
@@ -593,28 +612,19 @@ function drawTriangle(event) {
         }
         ctx.closePath();
         ctx.stroke();
+        // ctx.fill()
+
+
+
+
     } else {
         return false
 
     }
-
-
-
-
-
-
 };
-
-function clearCanvas() {
-    fillRectWhite();
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    fillRectWhite();
-};
-
 
 
 function download() {
-
     let data = canvas.toDataURL('image/jpeg');
     let a = document.createElement('a');
     a.download = 'image.jpeg';
@@ -622,11 +632,6 @@ function download() {
     a.click();
 
 };
-
-//To Clear
-clearBtn.addEventListener('click', () => {
-    clearCanvas()
-});
 
 
 //To Download
