@@ -269,8 +269,6 @@ tools.addEventListener('click', (e) => {
         console.log(isEraser);
     }
 
-
-    console.log(tank);
     canvas.addEventListener('mousemove', (e) => {
         if (isDrawing === true) {
             drawTriangle(e);
@@ -367,7 +365,6 @@ check.addEventListener('click', () => {
         isFill = false;
         check.style.backgroundColor = `transparent`;
     }
-    console.log(isFill);
 });
 
 color.addEventListener('change', () => {
@@ -387,7 +384,6 @@ function fillRectWhite() {
     if (ctx.fillStyle === '#000000') {
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, canvas.width, canvas.height)
-        console.log(ctx.fillStyle);
     }
 };
 
@@ -587,8 +583,6 @@ function drawTriangle(event) {
         }
         //For Touch Devices
 
-        console.log(x * 2);
-        console.log(event.offsetX);
         if (isFill === true) {
             ctx.fillStyle = color.value;
             ctx.fill();
@@ -599,11 +593,6 @@ function drawTriangle(event) {
         }
         ctx.closePath();
         ctx.stroke();
-        // ctx.fill()
-
-
-
-
     } else {
         return false
 
@@ -617,7 +606,9 @@ function drawTriangle(event) {
 };
 
 function clearCanvas() {
+    fillRectWhite();
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    fillRectWhite();
 };
 
 
