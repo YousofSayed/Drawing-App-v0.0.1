@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image" href="./img/silhouette-solo-loader-dribbble_v2.gif">
+    <title>Drawing App</title>
+</head>
+
+<body>
+
+    <!--Start Loader -->
+    <div class="loader"><img src="./img/silhouette-solo-loader-dribbble_v2.gif"></div>
+    <!--End Loader -->
+
+
+    <div class="tools">
+        <div class="container">
+
+            <div class="icon gear" id="gear"><i id="gear" class="fa-solid fa-gear"></i></div>
+            <div class="icon pos"><i id="download" class="fa-solid fa-download"></i></div>
+            <div class="icon pos"><i id="clearCanvas" class="fa-regular fa-note-sticky"></i></div>
+            <div class="icon pos"><i id="brush" class="fa-solid fa-paintbrush"></i></div>
+            <div class="icon pos"><i id="eraser" class="fa-solid fa-eraser"></i></div>
+            <div class="color pos">
+                <div class="box">
+                    <input type="color" id="color">
+                </div>
+            </div>
+
+            <div class="check pos">
+                <button id="check"></button>
+            </div>
+
+            <div class="shapes" id="shapesParent">
+                <i id="shapes" class="fa-solid fa-shapes"></i>
+                <i id="rect" class="fa-regular fa-square"></i>
+                <i id="circle" class="fa-regular fa-circle"></i>
+                <!-- <div class="forAlign">
+                <i id="triangel" class="fa-solid fa-play"></i>
+                </div> -->
+                <img id="triangel" src="./img/triangle-outline.svg">
+                <i id="line" class="line"></i>
+            </div>
+            
+
+            <div class="right">
+                <div class="input range">
+                    <div class="valueOFRange" id="valueOFRange">0</div>
+                    <input type="range" id="range">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvasParent">
+        <div class="container">
+            <canvas id="mycanvas"></canvas>
+
+        </div>
+    </div>
+
+    <div class="music-area">
+        <i class="fa-solid fa-music"></i>
+        <div class="line"></div>
+
+        <div class="songs">
+            <div class="audios">
+                <audio class="aud" src="./Music/soundtrack - 1.mp3"></audio>
+                <audio class="aud" src="./Music/soundtrack - 2.mp3"></audio>
+                <audio class="aud" src="./Music/soundtrack - 3.mp3"></audio>
+                <audio class="aud" src="./Music/soundtrack - 4.mp3"></audio>
+            </div>
+
+            <div class="titleOfSong"></div>
+            <div class="circle"></div>
+
+
+            <div class="timeContainer">
+                <input id="bar" type="range">
+                <div class="time">
+                    <div class="currentTime">
+                        <span class="min">0</span>
+                        :
+                        <span class="sec">0</span>
+                    </div>
+
+
+
+                    <div class="totalTime">
+                        <span class="min"></span>
+                        :
+                        <span class="sec"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tools-music">
+                <div class="left"><i id="appearList" class="fa-solid fa-list"></i></div>
+                <div class="center">
+                    <i id="previous" class="fa-solid fa-backward-step"></i>
+                    <i id="play" class="fa-solid fa-play"></i>
+                    <i id="next" class="fa-solid fa-forward-step"></i>
+                </div>
+                <div class="right">
+                    <i id="repeat" class="fa-solid fa-repeat"></i>
+                    <span id="numOfLoop">1</span>
+                </div>
+
+                <!-- musics -->
+            </div>
+            <div class="list">
+                <div class="line"></div>
+                <div class="header">
+                    <div class="left">
+                        <i id="trash" class="fa-solid fa-trash"></i>
+                        <i id="add" class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="right">
+                        <span id="numOfMusic"></span>
+                        <span id="stateOfPlaying"></span>
+                        <i id="repeat2" class="fa-solid fa-repeat"></i>
+                        <span id="numOfLoop2">1</span>
+                    </div>
+                </div>
+                <div class="song">
+                    <div class="left">
+                        <i  class="fa-solid fa-x"></i>
+                        <div class="move">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="nameOfMusic"></div>
+                    <div class="sign"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Start The ContextMenu -->
+    <div class="context">
+        <div class="check">
+            <label for="toolsCheck">Tools</label>  
+            <input type="checkbox" id="toolsCheck">
+        </div>
+        <div class="check">
+            <label for="shapesCheck">Shapes</label>
+            <input type="checkbox" id="shapesCheck">
+         </div>
+        <div class="check">
+            <label for="musicCheck">Music</label>
+            <input type="checkbox" id="musicCheck">
+        </div>
+    </div>
+    <!-- End The ContextMenu -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
